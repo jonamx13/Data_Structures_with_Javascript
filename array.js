@@ -37,6 +37,29 @@ class MyArray {
         delete this.data[this.length - 1];
         this.length--;
     }
+    
+    //TODO: shift and unshift methods
+    sort() {
+        Object.keys(this.data).reduce((accVal,currVal) => {
+            accVal[currVal] = this.data[currVal];
+            return accVal
+        }, {});
+    }
+    shift() {
+        delete this.data[0];
+        this.length--;
+        Object.keys(this.data).forEach(key => {
+            this.data[key - 1] = this.data[key];
+            delete this.data[key]
+        })
+    }
+    
+    unshift(element) {
+/*         this.data.push(element)
+        Object.keys(this.data).forEach(key => {
+            this.data[key] = this.data[key+1];
+        }) */
+    }
 }
 
 const myArray = new MyArray();
