@@ -54,11 +54,13 @@ class MyArray {
         })
     }
     
-    unshift(element) {
-/*         this.data.push(element)
-        Object.keys(this.data).forEach(key => {
-            this.data[key] = this.data[key+1];
-        }) */
+    unshift(item) {
+        for (let i = this.length; i > 0; i--) {
+            this.data[i] = this.data[i - 1];
+        }
+        this.data[0] = item;
+        this.length++;
+        return this.data;
     }
 }
 
