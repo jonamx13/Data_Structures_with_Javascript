@@ -21,3 +21,23 @@ class HashTable {
 }
 
 const myHashTable = new HashTable(50);
+
+myHashTable.set('Jonathan', 1994); //> 8:Array >> 0: ['Jonathan', 1994]
+myHashTable.set('Jona', 1990); //> 22:Array >> 0: ['Jona', 1990]
+// Collision
+myHashTable.set('Diego', 1990); //> 10:Array >> 0: ['Diego', 1990]
+myHashTable.set('Mariana', 1998); // 10: Array >> 0: ['Diego', 1990] 1: ['Mariana', 1998]
+
+console.log(myHashTable.data);
+//*Output
+/*
+    [
+//!  <8 empty items>,
+//?  [ ['Jonathan', 1994] ],
+//!  <1 empty item>,
+//*  [ ['Diego', 1990], ['Mariana', 1998] ] <<< Collision
+//!  <11 empty items>,
+//?  [ ['Jona', 1990] ]
+//!  <27 empty items>
+    ]
+*/ 
