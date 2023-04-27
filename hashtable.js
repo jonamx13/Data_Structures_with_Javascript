@@ -30,6 +30,20 @@ class HashTable {
         }
         return undefined;
     }
+    delete(key) {
+        const address = this.hashMethod(key);
+        const currentBucket = this.data[address];
+        if(currentBucket) {
+            for(let i = 0; i < currentBucket.length; i++) {
+                if(currentBucket[i][0] === key) {
+                    const deleted = currentBucket[i];
+                    currentBucket.splice(i,1);
+                    return deleted;
+                }
+            }
+        }
+
+    }
 }
 
 const myHashTable = new HashTable(50);
@@ -57,3 +71,4 @@ console.log(myHashTable.data);
 console.log(myHashTable.get('Jona')); //> 1990
 console.log(myHashTable.get('Mariana')); //> 1998
 console.log(myHashTable.get('Maria')); //> undefined
+console.log(myHashTable.delete('Jona')); //> ['Jona', 1990]
