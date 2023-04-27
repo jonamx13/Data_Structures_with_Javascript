@@ -42,7 +42,14 @@ class HashTable {
                 }
             }
         }
-
+        return undefined;
+    }
+    getAllKeys() {
+        let keys = [];
+        this.data
+            .flat()
+            .flatMap((element) => element === undefined ? [] : keys.push(element[0]) );
+        return keys;
     }
 }
 
@@ -72,3 +79,5 @@ console.log(myHashTable.get('Jona')); //> 1990
 console.log(myHashTable.get('Mariana')); //> 1998
 console.log(myHashTable.get('Maria')); //> undefined
 console.log(myHashTable.delete('Jona')); //> ['Jona', 1990]
+console.log(myHashTable.data);
+console.log(myHashTable.getAllKeys());
